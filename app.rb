@@ -12,7 +12,7 @@ class App < Roda
       r.is "issues" do
         params = issue_params(r)
         send_to_notion(params)
-        params[:message]
+        params[:title]
       end
     end
   end
@@ -21,7 +21,8 @@ class App < Roda
 
   def issue_params(r)
     {
-      message: r.params.dig("data", "issue", "title"),
+      title: "#{r.params.dig("data", "issue", "metadata", "type")}",
+      message: r.params.dig("data", "issue", "metadata", "value"),
       issue_id: r.params.dig("data", "issue", "id"),
       app_id: r.params.dig("data", "issue", "project", "id"),
       app_slug: r.params.dig("data", "issue", "project", "slug")

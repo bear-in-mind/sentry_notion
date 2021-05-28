@@ -24,7 +24,7 @@ class NotionRequest
           "title": [
             {
               "text": {
-                "content": "#{@params[:message][0, 60]}..."
+                "content": "#{@params[:title]}"
               }
             }
           ]

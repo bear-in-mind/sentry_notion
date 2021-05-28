@@ -17,7 +17,7 @@ class NotionRequest
   def body
     {
       "parent": {
-        "database_id": ENV["LYANNE_DB"]
+        "database_id": ENV["NOTION_DB"]
       },
       "properties": {
         "Name": {

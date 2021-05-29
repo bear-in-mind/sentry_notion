@@ -2,12 +2,19 @@ require "http"
 
 module Notion
   class UpdatePage < Notion::Base
+
+    def initialize(params)
+      @page_status_property = "Status"
+      @page_status_value = "Done"
+      super(params)
+    end
+
     def get_pages
       response = request_with_headers.post(
         base_url("/databases/#{ENV["NOTION_DB"]}/query"),
         json: query
       )
-      p JSON.parse(response.to_s)
+      JSON.parse(response.to_s)
     end
 
     def mark_as_done(page_id)
@@ -24,9 +31,9 @@ module Notion
     def body
       {
         "properties": {
-          "Status": {
+          "#{@page_status_property}": {
             "select": {
-              "name": "Done"
+              "name": @page_status_value
             }
           }
         }

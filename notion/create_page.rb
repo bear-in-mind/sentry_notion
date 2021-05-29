@@ -2,8 +2,17 @@ require "http"
 
 module Notion
   class CreatePage < Notion::Base
+
+    def initialize(params)
+      # TODO: Change to your own properties
+      @page_property_name = "Category"
+      @page_property_value = "Sentry issues"
+      @page_url_property = "URL"
+      super(params)
+    end
+
     def send_request
-      p request_with_headers.post(base_url("/pages"), json: body)
+      request_with_headers.post(base_url("/pages"), json: body)
     end
     
     private
@@ -23,12 +32,12 @@ module Notion
               }
             ]
           },
-          "Category": {
+          "#{@page_category_property_name}": {
             "select": {
-              "name": "Sentry issues"
+              "name": @page_category_property_value
             }
           },
-          "URL": {
+          "#{@page_url_property}": {
             "url": "https://sentry.io/organizations/#{@params[:app_slug]}/issues/#{@params[:issue_id]}"
           },
           "issue_id": {

@@ -9,7 +9,7 @@ module Notion
     end
 
     def base_url(service = "")
-      "https://api.notion.com/v1#{service}"
+      "#{@base}#{service}"
     end
 
     def request_with_headers

@@ -32,8 +32,10 @@ class App < Roda
 
   def send_to_notion(params)
     if params[:action] == "resolved"
+      p "Mark as done"
       Notion::UpdatePage.new(params)
     else
+      p "Create issue"
       Notion::CreatePage.new(params)
     end
   end

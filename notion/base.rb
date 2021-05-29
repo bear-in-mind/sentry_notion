@@ -5,7 +5,7 @@ module Notion
     def initialize(params)
       @params = params
       @base = "https://api.notion.com/v1"
-      send_request
+      p send_request.to_s
     end
 
     def base_url(service = "")

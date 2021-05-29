@@ -25,12 +25,17 @@ class App < Roda
       message: r.params.dig("data", "issue", "metadata", "value"),
       issue_id: r.params.dig("data", "issue", "id"),
       app_id: r.params.dig("data", "issue", "project", "id"),
-      app_slug: r.params.dig("data", "issue", "project", "slug")
+      app_slug: r.params.dig("data", "issue", "project", "slug"),
+      action: r.params.dig("action")
     }
   end
 
   def send_to_notion(params)
     request = NotionRequest.new(params)
-    request.send
+    if params[:action] == "resolved"
+      request.destroy_ticket
+    else
+      request.create_ticket
+    end
   end
 end

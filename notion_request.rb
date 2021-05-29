@@ -6,10 +6,16 @@ class NotionRequest
     @base = "https://api.notion.com/v1/pages"
   end
 
-  def send
+  def create_ticket
     HTTP.headers(accept: "application/json", )
         .auth("Bearer #{ENV["NOTION_SECRET"]}")
         .post(@base, json: body)
+  end
+
+  def destroy_ticket
+    HTTP.headers(accept: "application/json", )
+        .auth("Bearer #{ENV["NOTION_SECRET"]}")
+        .delete(@base, json: body)
   end
 
   private

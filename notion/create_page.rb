@@ -5,8 +5,8 @@ module Notion
 
     def initialize(params)
       # TODO: Change to your own properties
-      @page_property_name = "Category"
-      @page_property_value = "Sentry issues"
+      @page_category_property_name = "Category"
+      @page_category_property_value = "Sentry issues"
       @page_url_property = "URL"
       super(params)
     end

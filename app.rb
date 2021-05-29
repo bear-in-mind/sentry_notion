@@ -1,6 +1,6 @@
 require "roda"
-require './.env' if File.exist?(".env.rb")
-require_relative "./notion_request"
+require "./.env" if File.exist?(".env.rb")
+require "./notion"
 
 class App < Roda
   plugin :h
@@ -31,11 +31,10 @@ class App < Roda
   end
 
   def send_to_notion(params)
-    request = NotionRequest.new(params)
     if params[:action] == "resolved"
-      request.destroy_ticket
+      Notion::UpdatePage.new(params)
     else
-      request.create_ticket
+      Notion::CreatePage.new(params)
     end
   end
 end

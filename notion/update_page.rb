@@ -4,8 +4,8 @@ module Notion
   class UpdatePage < Notion::Base
 
     def initialize(params)
-      @page_status_property = "Status"
-      @page_status_value = "Done"
+      @status_property = "Status"
+      @status_value = "Done"
       super(params)
     end
 
@@ -31,9 +31,9 @@ module Notion
     def body
       {
         "properties": {
-          "#{@page_status_property}": {
+          "#{@status_property}": {
             "select": {
-              "name": @page_status_value
+              "name": @status_value
             }
           }
         }

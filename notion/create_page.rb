@@ -5,9 +5,9 @@ module Notion
 
     def initialize(params)
       # TODO: Change to your own properties
-      @page_category_property_name = "Category"
-      @page_category_property_value = "Sentry issues"
-      @page_url_property = "URL"
+      @category_property = "Category"
+      @category_value = "Sentry issues"
+      @url_property = "URL"
       super(params)
     end
 
@@ -32,12 +32,12 @@ module Notion
               }
             ]
           },
-          "#{@page_category_property_name}": {
+          "#{@category_property}": {
             "select": {
-              "name": @page_category_property_value
+              "name": @category_value
             }
           },
-          "#{@page_url_property}": {
+          "#{@url_property}": {
             "url": "https://sentry.io/organizations/#{@params[:app_slug]}/issues/#{@params[:issue_id]}"
           },
           "issue_id": {

@@ -1,6 +1,8 @@
 # Sentry <=> Notion integration
 
-A simple app built with [Roda](https://github.com/jeremyevans/roda) that allows basic integration between Sentry and Notion. Once deployed and configured, each new Sentry issue will trigger a page insertion in the Notion database of your choice, while solving an issue will mark the ticket as done. Properly scheduled through an available rake task, tickets marked as done inside of Notion will sync back to Sentry to mark the corresponding issues as solved.
+A simple app built with [Roda](https://github.com/jeremyevans/roda) that allows basic integration between Sentry and Notion.
+
+Once deployed and configured, each new Sentry issue will trigger a page insertion in the Notion database of your choice, while solving an issue will mark the ticket as done. Properly scheduled through an available rake task, tickets marked as done inside of Notion will sync back to Sentry to mark the corresponding issues as solved.
 
 ## Use
 

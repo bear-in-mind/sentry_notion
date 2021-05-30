@@ -2,15 +2,6 @@ require "http"
 
 module Notion
   class CreatePage < Notion::Base
-
-    def initialize(params)
-      # TODO: Change to your own properties
-      @category_property = "Category"
-      @category_value = "Sentry issues"
-      @url_property = "URL"
-      super(params)
-    end
-
     def send_request
       request_with_headers.post(base_url("/pages"), json: body)
     end

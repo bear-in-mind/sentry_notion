@@ -17,7 +17,7 @@ class ResolveIssuesJob < Base
 
   def get_done_issues
     pages = notion_request.get_pages(by_status_query)
-    p pages["results"].select{ |p| Date.iso8601(p["last_edited_time"]) >= (Date.today - 1) }.map { |p| p["properties"]["issue_id"]["plain_text"] }
+    pages["results"].select{ |p| Date.iso8601(p["last_edited_time"]) >= (Date.today - 1) }.map { |p| p["properties"]["issue_id"]["rich_text"][0]["plain_text"] }
   end
 
   def by_status_query
@@ -42,9 +42,10 @@ class ResolveIssuesJob < Base
   end
 
   def update_issue(issue_id)
-    HTTP.auth("Bearer #{ENV["SENTRY_TOKEN"]}")
+    p HTTP.headers("accept" => "application/json")
+        .auth("Bearer #{ENV["SENTRY_TOKEN"]}")
         .put(
-          "https://sentry.io/api/0/issues/#{issue_id}}",
+          "https://sentry.io/api/0/issues/#{issue_id}/",
           json: { status: "resolved" }
         )
   end

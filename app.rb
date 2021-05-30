@@ -1,5 +1,4 @@
 require "roda"
-require 'sidekiq'
 require "./.env" if File.exist?(".env.rb")
 require "./notion"
 

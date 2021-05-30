@@ -42,7 +42,10 @@ ENV["NOTION_DB"] = "NOTION_DB_ID"
 ```
 
 ## Resources
-https://roda.jeremyevans.net/
-https://fiachetti.gitlab.io/mastering-roda/
-https://developers.notion.com/docs
-https://docs.sentry.io/api/
+[Roda's home](https://roda.jeremyevans.net/)
+
+[*Mastering Roda* handbook](https://fiachetti.gitlab.io/mastering-roda/)
+
+[Notion's documentation](https://developers.notion.com/docs)
+
+[Sentry's documentation](https://docs.sentry.io/api/)

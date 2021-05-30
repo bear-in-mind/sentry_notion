@@ -46,6 +46,6 @@ ENV["NOTION_DB"] = "NOTION_DB_ID"
 
 [*Mastering Roda* handbook](https://fiachetti.gitlab.io/mastering-roda/)
 
-[Notion's documentation](https://developers.notion.com/docs)
+[Notion documentation](https://developers.notion.com/docs)
 
-[Sentry's documentation](https://docs.sentry.io/api/)
+[Sentry documentation](https://docs.sentry.io/api/)

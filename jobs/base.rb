@@ -1,5 +1,4 @@
 require_relative './sidekiq'
-
 class Base
   include Sidekiq::Worker
 

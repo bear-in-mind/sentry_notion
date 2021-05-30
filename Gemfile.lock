@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    connection_pool (2.2.5)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     ffi (1.15.1)
@@ -26,8 +27,13 @@ GEM
       nio4r (~> 2.0)
     rack (2.2.3)
     rake (13.0.3)
+    redis (4.2.5)
     roda (3.44.0)
       rack
+    sidekiq (6.2.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
@@ -40,6 +46,7 @@ DEPENDENCIES
   http
   puma
   roda
+  sidekiq
 
 BUNDLED WITH
    2.2.13
